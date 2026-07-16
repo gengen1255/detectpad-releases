@@ -1,0 +1,59 @@
+DetectPad Binary License
+
+Copyright (c) 2026 gengen1255. All rights reserved.
+
+This license governs use of the DetectPad application binary ("the Software") distributed
+through this repository. The Software's source code is not published or licensed under this
+document; this document covers only the compiled binary made available for download here.
+
+1. Grant of use
+
+   Subject to the terms below, the copyright holder grants you a personal, non-exclusive,
+   non-transferable, revocable license to download and run the Software, free of charge, for
+   your own personal use.
+
+2. Restrictions
+
+   You may not, and may not permit or assist anyone else to:
+
+   a. redistribute, sell, rent, lease, sublicense, or otherwise make the Software or any copy of
+      it available to any other person or system, whether for a fee or free of charge;
+   b. reverse engineer, decompile, or disassemble the Software, or otherwise attempt to derive
+      its source code or underlying structure, except and only to the extent that such activity
+      is expressly permitted by applicable law notwithstanding this restriction;
+   c. create derivative works based on the Software, or modify, adapt, translate, or merge the
+      Software with other software;
+   d. remove or alter any copyright, trademark, or other proprietary notice contained in or on
+      the Software.
+
+3. Ownership
+
+   The Software is licensed, not sold. The copyright holder retains all right, title, and
+   interest in and to the Software, including all intellectual property rights therein. No
+   rights are granted to you other than the limited personal-use license expressly set out in
+   Section 1.
+
+4. No warranty
+
+   THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING,
+   AMONG OTHERS, THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, AND
+   NONINFRINGEMENT. THE COPYRIGHT HOLDER DOES NOT WARRANT THAT THE SOFTWARE WILL BE ERROR-FREE
+   OR THAT IT WILL MEET YOUR REQUIREMENTS.
+
+5. Exclusion of liability
+
+   IN NO EVENT SHALL THE COPYRIGHT HOLDER BE LIABLE FOR ANY CLAIM, DAMAGES, OR OTHER LIABILITY,
+   WHETHER IN AN ACTION OF CONTRACT, TORT, OR OTHERWISE, ARISING FROM, OUT OF, OR IN CONNECTION
+   WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE, INCLUDING, WITHOUT RESTRICTION,
+   ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, CONSEQUENTIAL, OR PUNITIVE DAMAGES, EVEN IF ADVISED
+   OF THE POSSIBILITY OF SUCH DAMAGES.
+
+6. Termination
+
+   This license terminates automatically if you breach any of its terms. Upon termination you
+   must stop using the Software and delete all copies of it in your possession.
+
+7. Governing terms
+
+   This is a proprietary, all-rights-reserved license. It is not an open-source license, and no
+   open-source license terms apply to the Software or to this document.
