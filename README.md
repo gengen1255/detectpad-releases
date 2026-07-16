@@ -4,7 +4,7 @@
 
 <h1 align="center">DetectPad</h1>
 
-<p align="center"><em>A notepad that screen sharing can't see.</em></p>
+<p align="center"><em>The notepad your screen share can’t see.</em></p>
 
 DetectPad is a minimal Windows desktop notepad for jotting sensitive notes that should never
 leak through screen sharing, screen recording, or screenshots. It is a single window with one
