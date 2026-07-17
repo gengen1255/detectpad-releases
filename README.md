@@ -100,6 +100,12 @@ deleted or overwritten - it simply cannot be opened, and DetectPad tells you so 
 failing silently. This is a genuine data-loss risk worth planning around; it is not proof that a
 copy of the file is safe from the scenarios described above.
 
+**Upgrading is one-way for device-mode notes.** The first time this version opens a device-mode
+note created by an older build, it transparently upgrades how that note's key is protected, after
+which an older DetectPad (v1.5.0 or earlier) can no longer open it. The note is not modified in
+any other way, and passphrase-mode notes are unaffected - but rolling back to an older version is
+not a way to recover a device-mode note once a newer version has opened it.
+
 **If you need to move a note to another machine on purpose:** switch to passphrase mode first
 (below), or copy the plain text of your note by hand. Do not copy `note.dat` itself expecting it
 to open elsewhere - by design, it will not.
@@ -182,15 +188,14 @@ file. If the old plain-text file is encrypted successfully but cannot be removed
 example, because another program is holding it open), DetectPad tells you this and names where
 the file still is, rather than reporting plain success - your note is protected either way.
 
-DetectPad also carries a one-time bridge that moves a note saved under the product's former name
-into the current location as a plain-text file, ahead of the encryption migration described
-above. In an unusual situation - an already-encrypted profile where a stale, old-named
-plain-text note is reintroduced later, typically by restoring a backup or an old profile - this
-bridge can write a plain-text copy of that stale note to disk. If that note is never unlocked in
-the same session (the unlock prompt is cancelled, or the passphrase entered is wrong), the
-plain-text copy can persist on disk until a later successful unlock removes it. This does not
-affect, or expose the content of, your current already-encrypted note; it is a narrow edge case
-around a stale file being reintroduced from elsewhere, disclosed here for completeness.
+DetectPad also migrates a note saved under the product's former name into the current encrypted
+format. If no `note.dat` exists yet, that older note is encrypted **directly** into `note.dat`
+using the same verify-before-delete steps described above - no code path in DetectPad writes a
+plain-text note file. If an encrypted note already exists and a stale, old-named plain-text note
+is reintroduced later (typically by restoring a backup or an old profile), DetectPad does not
+migrate, encrypt, or delete it: it leaves the file untouched and tells you where it is so you can
+remove it yourself. Earlier builds staged such a note as plain text before encrypting it; that
+intermediate step has been removed.
 
 The selected theme mode is persisted alongside the note at `%APPDATA%\DetectPad\settings.json`.
 This file holds only UI preferences such as the theme choice - it never contains your
