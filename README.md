@@ -6,14 +6,30 @@
 
 <p align="center"><em>The notepad your screen share can’t see.</em></p>
 
-DetectPad is a minimal Windows desktop notepad for jotting sensitive notes that should never
-leak through screen sharing, screen recording, or screenshots. It is a single window with one
-plain-text, word-wrapped note area, nothing else.
+DetectPad is a minimal Windows desktop notepad for the notes you can't afford to leak on a
+screen share, a recording, or a screenshot. Keep as many notes as you like open in tabs, all in
+one clean, distraction-free window - no accounts, no cloud, nothing to set up. Your notes are
+encrypted on disk automatically, and a single hotkey makes the whole window vanish.
 
 **Upgrading from an earlier release?** See the backup note under [Download](#download) before
 you install - it takes a minute, and it does not apply if this is your first install.
 
 This repository distributes the DetectPad binary only; the source code is not public.
+
+## What's new in v1.5.2
+
+- **Tabs.** Keep several notes open at once, Windows-Notepad style. Click **+** to open a new
+  tab, **&times;** to close one, click a tab to switch, or drag to reorder. Each tab's title
+  comes automatically from its first line.
+- **Keyboard shortcuts:** **Ctrl+T** new tab, **Ctrl+W** close tab, **Ctrl+Tab** /
+  **Ctrl+Shift+Tab** to move between tabs.
+- **One unlock, all tabs.** Your whole workspace - every tab - is protected together by the same
+  encryption and the same optional passphrase as before.
+- **Your existing note carries over** automatically as your first tab the first time you open
+  v1.5.2.
+- **Compatibility:** once v1.5.2 saves your note, v1.5.1 and earlier can no longer open it (a
+  one-way upgrade, the same as the earlier device-key upgrade). Back up first if you might roll
+  back - see [Download](#download).
 
 ## What it does
 
@@ -22,7 +38,10 @@ This repository distributes the DetectPad binary only; the source code is not pu
 - Provides a global panic hotkey, **Ctrl+Alt+H**, that instantly hides the window - even when
   DetectPad does not have keyboard focus - and restores it to its prior position, size, and
   state when pressed again. Any unsaved text is saved before the window hides.
-- Autosaves your note as you type, so you never have to remember to save.
+- Keeps several notes open at once as tabs, Windows-Notepad style, with **Ctrl+T** / **Ctrl+W**
+  to open and close and **Ctrl+Tab** to switch. Every tab is protected by the same encryption
+  and the same optional passphrase - one unlock opens your whole workspace.
+- Autosaves every tab as you type, so you never have to remember to save.
 - Follows the Windows system light/dark app theme by default, with a compact toggle to
   override it; your choice is remembered across restarts.
 - Encrypts your note at rest automatically, with no setup required: the encryption key is
@@ -174,8 +193,12 @@ The note is saved encrypted, at a fixed path:
 
 `note.dat` is a small versioned, authenticated binary format - it is not a plain-text file, and
 opening it in a text editor shows ciphertext, not your note. The directory and file are created
-automatically on first save if they do not already exist. There is a single implicit document:
-each save re-encrypts and overwrites the file (no versioning, no backups, no multi-note support).
+automatically on first save if they do not already exist. Since v1.5.2 this single file holds
+your whole workspace - every open tab, its order, and which tab is active - encrypted together
+under one key; each save re-encrypts and overwrites it (no per-tab files, no versioning, no
+backups). A `note.dat` written by v1.5.1 or earlier still opens and becomes your first tab; the
+first time v1.5.2 saves it, the file is converted to the new format, after which older versions
+can no longer open it - the same one-way upgrade described above.
 
 If DetectPad finds an existing plain-text `%APPDATA%\DetectPad\note.txt` from a version prior to
 1.5.0, and no `note.dat` yet exists, it migrates that note automatically on the next startup: the
@@ -245,7 +268,7 @@ to allow it manually.
 ## Non-goals (v1)
 
 No secure-delete or "panic wipe" of the note file or the disk blocks a prior plain-text note
-occupied, no passphrase recovery or reset mechanism of any kind, no multi-note/tabs, no tray
+occupied, no passphrase recovery or reset mechanism of any kind, no tray
 icon, no find/replace, no settings UI beyond the theme toggle and the passphrase
 set/change/remove flow, no high-contrast theme, no font settings, no installer/packaging (the
 Releases download is a single standalone exe, not an MSI/MSIX/winget package), and no
